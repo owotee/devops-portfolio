@@ -13,10 +13,15 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen flex flex-col bg-slate-950">
-        <Navbar />
+      <div className="relative min-h-screen overflow-hidden bg-[#050816] text-white">
 
-        <main className="flex-grow">
+        <div className="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-purple-600 opacity-20 blur-[150px] rounded-full"></div>
+
+        <div className="absolute bottom-[-200px] right-[-100px] w-[500px] h-[500px] bg-cyan-500 opacity-20 blur-[150px] rounded-full"></div>
+
+        <div className="relative z-10">
+          <Navbar />
+
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -25,9 +30,10 @@ function App() {
             <Route path="/resume" element={<Resume />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-        </main>
 
-        <Footer />
+          <Footer />
+        </div>
+
       </div>
     </BrowserRouter>
   );

@@ -1,46 +1,41 @@
+import { motion } from "framer-motion";
+
 function Skills() {
-  const skills = [
-    "AWS",
-    "Azure",
-    "Google Cloud",
-    "Terraform",
-    "Ansible",
-    "CloudFormation",
-    "Jenkins",
-    "GitHub Actions",
-    "GitLab CI",
-    "Docker",
-    "Kubernetes",
-    "Helm",
-    "Linux",
-    "Bash",
-    "Python",
-    "PowerShell",
-    "Prometheus",
-    "Grafana",
-    "ELK Stack",
-    "Splunk",
-    "Git",
-    "SQLite",
-    "Vercel",
-    "DevSecOps",
-  ];
+  const groups = {
+    Cloud: ["AWS", "Azure", "Google Cloud", "IAM", "Cost Optimization"],
+    "CI/CD": ["Jenkins", "GitHub Actions", "GitLab CI", "Azure DevOps"],
+    Containers: ["Docker", "Kubernetes", "Helm", "Docker Hub"],
+    IaC: ["Terraform", "Ansible", "CloudFormation", "Bash"],
+    Monitoring: ["Prometheus", "Grafana", "ELK Stack", "Splunk"],
+    Scripting: ["Python", "Bash", "PowerShell", "Linux"],
+  };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white px-20 py-20">
-      <h1 className="text-5xl font-bold text-cyan-400 mb-10">Technical Skills</h1>
+    <main className="max-w-7xl mx-auto px-6 py-24">
+      <h1 className="text-5xl font-bold mb-10">
+        Professional <span className="text-purple-400">Skillset</span>
+      </h1>
 
-      <div className="grid md:grid-cols-4 gap-5">
-        {skills.map((skill, index) => (
-          <div
-            key={index}
-            className="bg-slate-900 border border-slate-700 rounded-xl p-5 text-center text-lg hover:border-cyan-400 transition"
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {Object.entries(groups).map(([group, skills]) => (
+          <motion.div
+            key={group}
+            whileHover={{ y: -8 }}
+            className="bg-[#0f172a] border border-purple-500/20 backdrop-blur-xl bg-white/5 rounded-3xl p-8"
           >
-            {skill}
-          </div>
+            <h2 className="text-2xl font-bold text-purple-400 mb-5">{group}</h2>
+
+            <div className="flex flex-wrap gap-3">
+              {skills.map((skill) => (
+                <span key={skill} className="bg-purple-500/10 text-slate-300 border border-purple-500/40 px-3 py-1 rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </main>
   );
 }
 
