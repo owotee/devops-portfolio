@@ -8,7 +8,7 @@ The portfolio showcases cloud engineering, DevOps automation, Infrastructure as 
 
 # Live Portfolio
 
-https://YOUR-VERCEL-URL.vercel.app
+https://devops-portfolio-rho.vercel.app/
 
 ---
 
